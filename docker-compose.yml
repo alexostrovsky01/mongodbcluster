@@ -4,8 +4,8 @@ services:
   mongo_replica_1:
     image: mongo:5
     command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
-    ?environment:
-      TERM: xterm
+    labels:
+      docker.service: mongodb_replica_set
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - mongo-data-1:/data/db
@@ -17,11 +17,12 @@ services:
       placement:
         constraints:
           - node.labels.mongo.replica == 1
+  
   mongo_replica_2:
     image: mongo:5
     command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
-    environment:
-      TERM: xterm
+    labels:
+      docker.service: mongodb_replica_set
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - mongo-data-2:/data/db
@@ -37,8 +38,8 @@ services:
   mongo_replica_3:
     image: mongo:5
     command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
-    environment:
-      TERM: xterm
+    labels:
+      docker.service: mongodb_replica_set
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - mongo-data-3:/data/db
