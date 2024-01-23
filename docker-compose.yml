@@ -3,7 +3,7 @@ services:
 
   mongo_replica_1:
     image: mongo:5
-    command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
+    command: mongod --replSet myReplicaSet --noauth
     labels:
       docker.service: mongodb_replica_set
     volumes:
@@ -20,7 +20,7 @@ services:
   
   mongo_replica_2:
     image: mongo:5
-    command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
+    command: mongod --replSet myReplicaSet --noauth
     labels:
       docker.service: mongodb_replica_set
     volumes:
@@ -37,7 +37,7 @@ services:
 
   mongo_replica_3:
     image: mongo:5
-    command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
+    command: mongod --smallfiles --replSet myReplicaSet --noauth
     labels:
       docker.service: mongodb_replica_set
     volumes:
