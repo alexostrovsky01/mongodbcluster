@@ -1,10 +1,10 @@
 version: "1.0"
 services:
 
-  mongo1:
+  mongo_replica_1:
     image: mongo:5
     command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
-    environment:
+    ?environment:
       TERM: xterm
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -17,7 +17,7 @@ services:
       placement:
         constraints:
           - node.labels.mongo.replica == 1
-  mongo2:
+  mongo_replica_2:
     image: mongo:5
     command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
     environment:
@@ -34,7 +34,7 @@ services:
         constraints:
           - node.labels.mongo.replica == 2
 
-  mongo3:
+  mongo_replica_3:
     image: mongo:5
     command: mongod --smallfiles --replSet rs1 --noauth --oplogSize 3
     environment:
