@@ -10,6 +10,8 @@ services:
       - mongo-config-1:/data/configdb
     networks:
       - mongoCluster
+    ports:
+      - 27017:27017
     deploy:
       replicas: 1
       placement:
@@ -25,6 +27,8 @@ services:
       - mongo-config-2:/data/configdb
     networks:
       - mongoCluster
+    ports:
+      - 27017:27017
     deploy:
       replicas: 1
       placement:
@@ -40,6 +44,8 @@ services:
       - mongo-config-3:/data/configdb
     networks:
       - mongoCluster
+    ports:
+      - 27017:27017
     deploy:
       replicas: 1
       placement:
