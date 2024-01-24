@@ -9,6 +9,13 @@ Worker nodes:
 docker swarm join --token *docker-swarm-token* *manager-address*
 ```
 
+Mater node:
+```
+docker node update --label-add mongo.replica=1 *manager-address*
+docker node update --label-add mongo.replica=2 *worker1-address*
+docker node update --label-add mongo.replica=3 *worker2-address*
+```
+
 Master node:
 ```
 docker stack deploy -c docker-compose.yml mongodbcluster
