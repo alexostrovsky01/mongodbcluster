@@ -22,10 +22,10 @@ docker stack deploy -c docker-compose.yml mongodbcluster
 ./init
 ```
 ```
-docker service update --publish-rm 27017:27017 mongodbcluster_mongo1
+docker service update --publish-rm 27017:27017 mongodbcluster_mongo_replica_1
 // if publish port was set before, need to remove first and update it.
 
-docker service update --publish-add 27017:27017 mongodbcluster_mongo1
+docker service update --publish-add 27017:27017 mongodbcluster_mongo_replica_1
 ```
 
 # mongodbcluster tear down
